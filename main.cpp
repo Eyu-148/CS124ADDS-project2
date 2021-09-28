@@ -81,6 +81,5 @@ int main() {
         }
         stackCourse.print();
 
-
     return 0;
 }

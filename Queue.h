@@ -27,6 +27,7 @@ public:
     }
 
     // Destructor
+    // Automatically call when main function ends
     ~Queue() {
         while (rear != nullptr) {
             pop();
@@ -40,10 +41,12 @@ public:
         if (head == nullptr) {
             head = newNode;
             rear = newNode;
+            std::cout << "--> push one new item onto EMPTY queue." << std::endl;
         }
         else {
             rear->setNext(newNode);
             rear = newNode;
+            std::cout << "--> push one new node onto queue." << std::endl;
         }
     }
 
@@ -59,6 +62,7 @@ public:
         head = head->getNext();
         // delete the old pointer
         delete headCopy;
+        std::cout << "--> pop one item from queue. " << std::endl;
         // outputs the item
         return item;
     }
@@ -88,6 +92,7 @@ public:
     }
 
     void print() {
+        std::cout << std::string(80, '=') << std::endl;
         std::cout << "Head of queue" << std::endl;
         if (head == nullptr) {
             std::cout << "This is a empty queue" << std::endl;
@@ -99,7 +104,7 @@ public:
                 currentObject = currentObject->getNext();
             }
             std::cout << "Rear of queue" << std::endl;
-            std::cout << std::string(97, '=') << std::endl;
+            std::cout << std::string(80, '=') << std::endl;
         }
     }
 

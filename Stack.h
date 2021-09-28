@@ -1,5 +1,5 @@
 //
-// Created by Eyu on 6/7/2021.
+// Created by Eyu on 9/27/2021.
 //
 
 #ifndef STACK_H
@@ -21,6 +21,7 @@ public:
     }
 
     // Destructor
+    // Automatically call when main function ends
     ~Stack() {
         while (top != nullptr) {
             pop();
@@ -31,6 +32,7 @@ public:
     void push(Object item) {
         Node<Object>* newNode = new Node<Object>(item, top);
         top = newNode;
+        std::cout << "--> push one new item onto stack" << std::endl;
     }
 
     // Pop an item off the stack
@@ -47,6 +49,7 @@ public:
         top = top->getNext();
         // delete the old pointer
         delete topCopy;
+        std::cout << "--> pop one item from stack" << std::endl;
         // outputs the item
         return item;
     }
@@ -74,6 +77,7 @@ public:
 
     // Print the stack
     void print() {
+        std::cout << std::string(80, '=') << std::endl;
         std::cout << "Top of stack" << std::endl;
         Node<Object>* currentObject = top;
         while (currentObject != nullptr) {
@@ -81,7 +85,7 @@ public:
             currentObject = currentObject->getNext();
         }
         std::cout << "Bottom of stack" << std::endl;
-        std::cout << std::string(97, '=') << std::endl;
+        std::cout << std::string(80, '=') << std::endl;
     }
 
 };
